@@ -19,7 +19,7 @@ export default class NavBar extends React.Component {
                                         <a class="nav-link bluee" href="#">Home <span class="sr-only">(current)</span></a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="#">My Favorites</a>
+                                        <a class="nav-link" href="#">Likes</a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" href="#">Checkout</a>

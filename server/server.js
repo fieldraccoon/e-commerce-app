@@ -8,9 +8,11 @@ require('dotenv').config();
 const app = express();
 const port = process.env.PORT || 5000;
 
-app.use(cors());
-app.use(express.json());
+const productsRouter = require('./routes/productsRoute.js')
+const likesRouter = require('./routes/likesRoute')
+const checkoutRouter = require('./routes/checkoutRoute')
 
+app.use(cors());
 uri = process.env.ATLAS_URI 
 
 mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true }
@@ -19,6 +21,12 @@ mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true }
     connection.once('open', () => {
       console.log("MongoDB database connection established successfully");
     })
+
+
+
+app.use('/products', productsRouter)
+app.use('/likes', likesRouter)
+app.use('/checkout', checkoutRouter)
 
 
 app.listen(port, () => {
