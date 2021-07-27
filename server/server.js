@@ -11,6 +11,7 @@ const port = process.env.PORT || 5000;
 const productsRouter = require('./routes/productsRoute.js')
 const likesRouter = require('./routes/likesRoute')
 const checkoutRouter = require('./routes/checkoutRoute')
+const publishedRouter = require('./routes/publishedRoute')
 
 app.use(cors());
 uri = process.env.ATLAS_URI 
@@ -27,7 +28,7 @@ mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true }
 app.use('/products', productsRouter)
 app.use('/likes', likesRouter)
 app.use('/checkout', checkoutRouter)
-
+app.use('/published', publishedRouter)
 
 app.listen(port, () => {
     console.log(`Running on port ${port}`)

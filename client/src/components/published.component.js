@@ -9,7 +9,7 @@ export default class likes_page extends Component {
     render () {
         return (
             <div>
-                <h1>Likes</h1>
+                <h1>Products</h1>
             </div>
             )
     }
