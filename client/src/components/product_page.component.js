@@ -44,8 +44,15 @@ export default class product_page extends Component {
             }
         
         console.log(submitted_product);
+        const json = JSON.stringify(submitted_product);
+        console.log(json);
 
-        axios.post('http://localhost:5000/products/add', submitted_product)
+        axios.post('http://localhost:5000/products/add', json , {
+            headers: {
+                // Overwrite Axios's automatically set Content-Type
+                'Content-Type': 'application/json'
+              }
+        })
         .then(res => console.log(res.data))
         this.setState({
             product_name: '', 
