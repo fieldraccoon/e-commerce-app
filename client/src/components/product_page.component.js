@@ -45,9 +45,8 @@ export default class product_page extends Component {
         
         console.log(submitted_product);
 
-        axios.post('http://localhost:5000/product/add', submitted_product)
+        axios.post('http://localhost:5000/products/add', submitted_product)
         .then(res => console.log(res.data))
-
         this.setState({
             product_name: '', 
             product_description: '',
@@ -62,7 +61,7 @@ export default class product_page extends Component {
                 <h1>products</h1>
                 <h3>Create a new product</h3>
 
-                <form onSubmit={this.onSubmit}>
+                <form method="post" action="/" onSubmit={this.onSubmit}>
                     <div className="form-group">
                         <label>Item name: </label> <br></br>
                         <input type="text"
@@ -86,7 +85,7 @@ export default class product_page extends Component {
                         />
                     </div>
                     <div className="form-group">
-                        <input type="submit" value="Create Productr" className="btn btn-primary" />
+                        <input type="submit" value="Create Product" className="btn btn-primary" />
                     </div>
                 </form>
 
