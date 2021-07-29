@@ -6,7 +6,7 @@ let Product = require('../models/products.model.js')
 
 router.route("/").get((req, res) => {
     Product.find()
-    .then(exercises => res.json(exercises))
+    .then(products => res.json(products))
     .catch(err => res.status(400).json('Error: ' + err));
 })
 

@@ -34,6 +34,32 @@ export default class product_page extends Component {
         })
     }   
 
+    // onSubmit(e) {
+    //     e.preventDefault();
+
+    //     const submitted_product = {
+    //         product_name: this.state.product_name,
+    //         product_description: this.state.product_description,
+    //         product_price: this.state.product_price,
+    //         }
+        
+    //     console.log(submitted_product);
+    //     const json = JSON.stringify(submitted_product);
+    //     console.log(json);
+
+    //     axios.post('http://localhost:5000/products/add', json , {
+    //         headers: {
+    //             // Overwrite Axios's automatically set Content-Type
+    //             'Content-Type': 'application/json'
+    //           }
+    //     })
+    //     .then(res => console.log(res.data))
+    //     this.setState({
+    //         product_name: '', 
+    //         product_description: '',
+    //         product_price: '',
+    //     })
+    // }
     onSubmit(e) {
         e.preventDefault();
 
@@ -43,11 +69,9 @@ export default class product_page extends Component {
             product_price: this.state.product_price,
             }
         
-        console.log(submitted_product);
-        const json = JSON.stringify(submitted_product);
-        console.log(json);
+        
 
-        axios.post('http://localhost:5000/products/add', json , {
+        axios.post('http://localhost:5000/products/add', submitted_product , {
             headers: {
                 // Overwrite Axios's automatically set Content-Type
                 'Content-Type': 'application/json'
