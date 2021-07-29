@@ -5,7 +5,7 @@ import Navbar from "./components/Navbar"
 import product_page from "./components/product_page.component.js"
 import likes_page from "./components/likes_page.component.js"
 import checkout_page from "./components/checkout_page.component.js"
-
+import published_page from "./components/published.component.js"
 function App() {
 
   return (
@@ -15,6 +15,8 @@ function App() {
         <Route path="/products" exact component={product_page} />
         <Route path="/likes" component={likes_page} />
         <Route path="/checkout" component={checkout_page} />
+        <Route path="/published" component={published_page} />
+
       </div>
     </Router>
 
