@@ -6,7 +6,10 @@ import axios from "axios"
 //         <td>{props.product.name}</td>
 //         <td>{props.product.description}</td>
 //         <td>{props.product.duration}</td>
-//     </tr>
+//         {/* <td>
+//             <Link to={"https://localhost:5000/products/"}
+//         </td>
+//     </tr> */}
 // );
 
 export default class likes_page extends Component {
@@ -17,6 +20,9 @@ export default class likes_page extends Component {
             products: [],
             product_name: '',
         }
+        this.deleteProduct = this.deleteProduct.bind(this)
+        this.likeProduct = this.likeProduct.bind(this)
+
     }
 
     componentDidMount() {
@@ -30,13 +36,26 @@ export default class likes_page extends Component {
             })
 
     }
-    
-    deleteProduct() {
+
+    deleteProduct(id) {
         console.log("hello")
+        console.log(id)
+        var url = `http://localhost:5000/published/${id}`
+        console.log(url)
+        axios.delete(url)
+        window.location.reload();
+
+    }
+
+
+    likeProduct(name) {
+        console.log(name)
+        axios.post(`http://localhost:5000/likes/add/`, name)
     }
 
     render() {
-        const { products, deleteProduct} = this.state;
+        const { products, deleteProduct, likeProduct } = this.state;
+
 
         return (
             <div>
@@ -51,16 +70,16 @@ export default class likes_page extends Component {
                         </tr>
                     </thead>
                     {products.map((product) => (
-                        <tr key={product._id}>
+                            < tr >
                             <td>{product.product_name}</td>
                             <td>{product.product_description}</td>
                             <td>{"$" + product.product_price}</td>
-                            <td>{product._id}</td>
-                            <td><button class="btn" onClick={this.deleteProduct}>Delete</button></td>
+                            <td><button class="btn" onClick={() => {this.deleteProduct(product._id)}} value={product._id}>Delete</button></td>
+                            <td><button class="btn" onClick={() => {this.likeProduct(product.product_name)}} value={product._id}>Like</button></td>
                         </tr>
                     ))}
                 </table>
-            </div>
+            </div >
         )
     }
 }

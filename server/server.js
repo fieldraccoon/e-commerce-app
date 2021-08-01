@@ -10,7 +10,7 @@ const port = process.env.PORT || 5000;
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-const productsRouter = require('./routes/productsRoute.js')
+const productsRouter = require('./routes/createProductsRoute.js')
 const likesRouter = require('./routes/likesRoute')
 const checkoutRouter = require('./routes/checkoutRoute')
 const publishedRouter = require('./routes/publishedRoute')
